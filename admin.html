@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quản trị – Kagami Cosplay</title>
+<meta name="description" content="Trang quản trị cửa hàng Kagami Cosplay">
+<meta name="theme-color" content="#2d1238">
+<link rel="icon" type="image/svg+xml" href="Images/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Styles/style.css">
+<link rel="stylesheet" href="Styles/effects.css">
+<link rel="stylesheet" href="Styles/admin.css">
+<meta name="robots" content="noindex">
+<script>
+/* Chủ đề sáng/tối + màn nhung lần đầu + ảnh dự phòng (ảnh trong Images/photos chưa có thì lấy bản online) */
+(function(d){try{var t=localStorage.getItem("kagami_theme");t=t?JSON.parse(t):(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");d.documentElement.dataset.theme=t}catch(e){}
+try{if(!sessionStorage.getItem("kagami_curtain")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)d.documentElement.classList.add("show-curtain")}catch(e){}
+d.addEventListener("error",function(e){var i=e.target;if(i.tagName!=="IMG")return;if(i.dataset.fb&&!i.dataset.tried){i.dataset.tried=1;i.src=i.dataset.fb}else i.classList.add("img-broken")},true)})(document);
+</script>
+</head>
+<body class="admin-page">
+<div class="curtain" aria-hidden="true"><div class="curtain-valance"></div><div class="curtain-logo"><div><img src="Images/logo.svg" alt=""><b>Kagami</b><small>Cosplay Wardrobe</small></div></div></div>
+<a class="sr-only" href="#main">Bỏ qua điều hướng</a>
+<div class="a-login" id="adminLogin" hidden>
+  <form class="card" id="adminLoginForm" novalidate>
+    <a href="index.html" class="logo"><img src="Images/logo.svg" alt="" width="42" height="42"><span class="logo-text">Kagami<small>Cosplay Wardrobe</small></span></a>
+    <h1>Đăng nhập quản trị</h1><p class="muted" style="margin-top:0">Khu vực dành cho nhân viên cửa hàng.</p>
+    <div class="field"><label for="aEmail">Email</label><input class="input" id="aEmail" type="email" autocomplete="username"></div>
+    <div class="field"><label for="aPass">Mật khẩu</label><input class="input" id="aPass" type="password" autocomplete="current-password"></div>
+    <p id="aErr" hidden style="color:var(--danger);margin:-6px 0 12px;font-size:14px">Sai email hoặc mật khẩu.</p>
+    <button class="btn btn-primary btn-block btn-lg"><svg class="ico sm" aria-hidden="true"><use href="#i-lock"/></svg> Đăng nhập</button>
+    <div class="demo-acc">Tài khoản demo: <b>admin@kagami.vn</b> / <b>admin123</b></div>
+  </form>
+</div>
+<div class="a-app" id="adminApp" hidden>
+  <aside class="a-side">
+    <a href="index.html" class="logo"><img src="Images/logo.svg" alt="" width="38" height="38"><span class="logo-text">Kagami<small>Quản trị</small></span></a>
+    <nav id="aNav" aria-label="Menu quản trị"></nav>
+    <div class="a-foot"><a href="index.html" target="_blank"><svg class="ico " aria-hidden="true"><use href="#i-globe"/></svg> Xem website</a><button id="aLogout"><svg class="ico " aria-hidden="true"><use href="#i-logout"/></svg> Đăng xuất</button></div>
+  </aside>
+  <div class="a-body">
+    <header class="a-top"><button class="icon-btn" id="aMenu" aria-label="Mở menu"><svg class="ico " aria-hidden="true"><use href="#i-menu"/></svg></button><h1 id="aTitle">Tổng quan</h1>
+      <div class="who"><button class="icon-btn" data-theme-toggle aria-label="Đổi giao diện sáng/tối"><svg class="ico " aria-hidden="true"><use href="#i-moon"/></svg></button><span class="avatar">AD</span><span><b>Quản trị viên</b><br><small class="muted">admin@kagami.vn</small></span></div></header>
+    <main id="aMain"></main>
+  </div>
+</div>
+<script src="Scripts/data.js"></script>
+<script src="Scripts/main.js"></script>
+<script src="Scripts/admin.js"></script>
+<script src="Scripts/effects.js"></script>
+</body>
+</html>
